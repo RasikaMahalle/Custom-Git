@@ -157,12 +157,21 @@ This makes Git internals **easy to understand visually**, especially for learnin
 
 ## ▶️ How to Compile & Run
 
-### Compile (CLI)
+### Compile (CLI + UI) for windows.
 ```bash
-javac -d out $(find src/main/java -name "*.java")
-
+javac `
+--module-path D:\Libraries\javafx-sdk-21.0.9\lib `
+--add-modules javafx.controls,javafx.fxml `
+-d out `
+(Get-ChildItem -Recurse src/main/java/*.java).FullName
+```
+### Run CLI
+```bash
 java -cp out com.mygit.Main <command>
+```
 
+### Run the JavaFX UI
+```bash
 java --module-path /path/to/javafx/lib \
      --add-modules javafx.controls,javafx.fxml \
      -cp out com.mygit.ui.MainApp
