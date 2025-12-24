@@ -53,6 +53,18 @@ mygit/
 └── README.md
 ```
 
+## Git folder project strucutre (folder created using the init command in my project)
+```text
+.mygit/                     # Git metadata (objects, refs, index)
+├── objects/                # Blob, tree, commit objects (SHA-1 based)
+├── refs/
+└── heads/              # Branch references
+├── index                   # Staging area
+└── config                  # User configuration
+
+(Cannot add this on GitHub.)
+```
+
 ## ✅ Supported Commands
 
 ### Repository & Configuration
@@ -154,6 +166,7 @@ java -cp out com.mygit.Main <command>
 java --module-path /path/to/javafx/lib \
      --add-modules javafx.controls,javafx.fxml \
      -cp out com.mygit.ui.MainApp
+```
 
 ## 🎯 Why This Project?
 
