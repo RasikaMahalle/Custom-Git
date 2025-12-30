@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.mygit.UI.controller.MainController">
+
+    <!-- Top Menu -->
+    <top>
+        <MenuBar>
+            <Menu text="Repository">
+                <MenuItem text="Init Repository" onAction="#initRepository"/>
+                <MenuItem text="Open Repository"/>
+                <MenuItem text="Refresh" onAction="#refreshRepository"/>
+                <MenuItem text="Stash changes" onAction="#stashChanges"/>
+                <MenuItem text="Apply stash" onAction="#applyStash"/>
+                <MenuItem text="Configure User" onAction="#showConfigDialog"/>
+            </Menu>
+            <Menu text="Help">
+                <MenuItem text="About"/>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <!-- Sidebar -->
+    <left>
+        <VBox spacing="10" style="-fx-padding: 10; -fx-background-color: #f4f4f4;">
+            <Button text="Home" onAction="#showOverview"/>
+            <Button text="Status" onAction="#showStatus"/>
+            <Button text="Log" onAction="#showLog"/>
+            <Button text="Branches" onAction="#showBranches"/>
+            <Button text="Diff" onAction="#showDiff"/>
+            <Button text="Commit" onAction="#showCommit"/>
+            <Button text="Merge" onAction="#showMerge"/>
+        </VBox>
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+        <StackPane fx:id="mainContent">
+
+            <VBox fx:id="emptyState"
+                  spacing="10"
+                  alignment="CENTER"
+                  style="-fx-padding: 10;">
+                <Label text="No repository created yet."
+                       style="-fx-font-size: 16;"/>
+                <Button text="Create Repo" onAction="#createRepoFromEmptyState"/>
+            </VBox>
+
+            <VBox fx:id="repoOverview"
+                spacing="10"
+                style="-fx-padding: 10;">
+
+                <Label text="Repository Overview"
+                    style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+
+                <GridPane hgap="10" vgap="8">
+                    <Label text="Repository Path:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label fx:id="repoPathLabel" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Branch:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <Label fx:id="branchLabel" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="HEAD State:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <Label fx:id="headStateLabel" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Working Tree:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <Label fx:id="dirtyStateLabel" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                    <Label text="Last Commit:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <Label fx:id="commitLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                </GridPane>
+
+            </VBox>
+
+        </StackPane>
+    </center>
+
+
+
+    <!-- Footer -->
+    <bottom>
+        <HBox style="-fx-padding: 8; -fx-background-color: #eaeaea;">
+            <Label fx:id="statusLabel"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
