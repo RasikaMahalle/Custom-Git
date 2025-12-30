@@ -425,8 +425,3 @@ If you find a bug or have an idea for an improvement:
 3. Submit a pull request with focused, well-structured changes.
 
 ---
-
-## License
-
-Add your preferred license here (for example, MIT, Apache-2.0, or GPL-3.0).
-
